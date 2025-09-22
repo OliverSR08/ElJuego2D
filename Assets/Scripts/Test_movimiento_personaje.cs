@@ -1,27 +1,38 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Unity.Collections;
 
-
-public class Test_movimiento_personaje : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 1f;
-    public float jump_force = 250f;
-    public Rigidbody2D player;
+    [Header("Movement")]
+    public float speed = 5f;
+    private float moveInput;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Jump")]
+    public float jumpForce = 7f;
+
+    [Header("Components")]
+    public Rigidbody2D rb;
+
+    private void FixedUpdate()
     {
-
+        // Horizontal movement
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
     }
 
-    public void Jump(InputAction.CallbackContext callbackContext)
+    // Input for horizontal movement (A/D)
+    public void Move(InputAction.CallbackContext context)
     {
-        if (callbackContext.performed)
+        moveInput = context.ReadValue<float>();
+    }
+
+    // Input for jump (W)
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
-            Debug.Log("Se pulso la w");
-            player.AddForceY(jump_force, ForceMode2D.Impulse);
+            Debug.Log("Jump!");
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
 }

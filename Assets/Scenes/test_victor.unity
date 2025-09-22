@@ -596,8 +596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  jump_force: 1
-  player: {fileID: 1742503080}
+  jumpForce: 7
+  rb: {fileID: 1742503080}
 --- !u!114 &1742503085
 MonoBehaviour:
   m_ObjectHideFlags: 0
