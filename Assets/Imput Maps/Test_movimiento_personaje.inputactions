@@ -16,12 +16,12 @@
                 },
                 {
                     "name": "Movement",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "6f4c56be-4bc6-433f-a0d3-a87ed0a0431f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -37,15 +37,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "9f2a54c1-98f2-4611-8042-6e2719b9812f",
+                    "name": "1D Axis",
+                    "id": "7a9d05f3-d23b-4751-adff-4d587ba7b20a",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "7b04a68a-b96e-4edc-8084-381ca15e5e5e",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "95d85cb7-77ed-46ad-98f8-5b5a10a75709",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

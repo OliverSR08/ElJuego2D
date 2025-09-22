@@ -24,6 +24,7 @@ public class Test_movimiento_personaje : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<float>();
+        Debug.Log("Direction value = " + moveInput.ToString());
     }
 
     // Input for jump (W)

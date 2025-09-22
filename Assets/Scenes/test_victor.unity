@@ -270,11 +270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5853712070887486118, guid: 264a8cc530cdba2449866b7decb34490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.2796254
+      value: 4.22
       objectReference: {fileID: 0}
     - target: {fileID: 5853712070887486118, guid: 264a8cc530cdba2449866b7decb34490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5958102
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: 5853712070887486118, guid: 264a8cc530cdba2449866b7decb34490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -327,11 +327,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5853712070887486118, guid: 264a8cc530cdba2449866b7decb34490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.157663
+      value: -4.46
       objectReference: {fileID: 0}
     - target: {fileID: 5853712070887486118, guid: 264a8cc530cdba2449866b7decb34490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.177443
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 5853712070887486118, guid: 264a8cc530cdba2449866b7decb34490, type: 3}
       propertyPath: m_LocalPosition.z
@@ -474,7 +474,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &1742503081
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
