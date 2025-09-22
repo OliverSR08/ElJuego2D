@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class Test_movimiento_personaje : MonoBehaviour
 {
     [Header("Movement")]
     public float speed = 5f;
