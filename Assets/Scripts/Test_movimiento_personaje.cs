@@ -10,7 +10,7 @@ public class Test_movimiento_personaje : MonoBehaviour
 
     [Header("Jump")]
     public float jumpForce = 7f;
-    public int max_jumps = 2;
+    public int max_jumps = 1;
     private int avaliable_jumps = 0;
     private bool grounded = false;
 
@@ -21,13 +21,14 @@ public class Test_movimiento_personaje : MonoBehaviour
     {
         // Horizontal movement
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
+        Debug.Log(grounded.ToString());
     }
 
     // Input for horizontal movement (A/D)
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<float>();
-        Debug.Log("Direction value = " + moveInput.ToString());
+        //Debug.Log("Direction value = " + moveInput.ToString());
     }
 
     // Input for jump (W)
@@ -40,12 +41,26 @@ public class Test_movimiento_personaje : MonoBehaviour
         }
     }
 
+
+
+
+
     private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground") && (other.collider.bounds.max.y < (rb.position.y - (rb.transform.localScale.y/2))))
+        {
+            avaliable_jumps = max_jumps;
+            grounded = true;
+            Debug.Log(other.collider.bounds.extents.y.ToString());
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            avaliable_jumps = max_jumps;
-        }
+            grounded = false;
+        } 
     }
 
 }
