@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.IntegerTime;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Collider2D _bodyColl;
 
     private Rigidbody2D _rb;
+
+    private Animator _animator;
 
     //Variables movimiento
     private Vector2 _moveVelocity;
@@ -50,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         _isFacingRight = true;
 
         _rb = GetComponent<Rigidbody2D>();
+
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -80,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != Vector2.zero)
         {
             TurnCheck(moveInput);
+            _animator.SetBool("Moving", true);
 
             Vector2 targetVelocity = Vector2.zero;
             if (InputManager.RunIsHeld)
@@ -90,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 targetVelocity = new Vector2(moveInput.x, 0f) * MoveStats.MaxWalkSpeed;
             }
-
+            
             _moveVelocity = Vector2.Lerp(_moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
             _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y);
         }
@@ -98,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
             _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y);
+            _animator.SetBool("Moving", false);
         }
     }
 
